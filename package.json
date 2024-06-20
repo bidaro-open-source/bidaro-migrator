@@ -1,0 +1,27 @@
+{
+  "private": true,
+  "license": "GPL-3.0-only",
+  "scripts": {
+    "db": "bun run db:undo && bun run db:migrate && bun run db:seed",
+    "db:undo": "bun src/seeder.ts down --to 0 && bun src/migrator.ts down --to 0",
+    "db:seed": "bun src/seeder.ts up",
+    "db:migrate": "bun src/migrator.ts up",
+    "db:seed:create": "bun src/seeder.ts create --name",
+    "db:migrate:create": "bun src/migrator.ts create --name",
+    "prepare": "git config core.hooksPath .hooks",
+    "lint": "eslint --cache .",
+    "lint:fix": "eslint . --fix",
+    "lint:staged": "lint-staged"
+  },
+  "dependencies": {
+    "pg": "^8.12.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.3",
+    "umzug": "^3.8.1"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.21.1",
+    "eslint": "^9.5.0",
+    "lint-staged": "^15.2.7"
+  }
+}
