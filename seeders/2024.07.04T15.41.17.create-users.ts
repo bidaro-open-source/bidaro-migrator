@@ -1,15 +1,17 @@
 import type { Seeder } from '../src/seeder'
 
+const now = new Date()
+
 const records = [
-  { email: 'test@test.test', username: 'test', password: 'test' },
+  { email: 'test@test.test', username: 'test', password: 'test', createdAt: now },
 ]
 
 export const up: Seeder = async ({ context: queryInterface }) => {
-  queryInterface.bulkInsert('users', records)
+  await queryInterface.bulkInsert('users', records)
 }
 
 export const down: Seeder = async ({ context: queryInterface }) => {
-  queryInterface.bulkDelete('users', {
+  await queryInterface.bulkDelete('users', {
     email: records.map(records => records.email),
   })
 }
