@@ -2,7 +2,7 @@ import { DataTypes } from 'sequelize'
 import type { Migration } from '../src/migrator.js'
 
 export const up: Migration = async ({ context: queryInterface }) => {
-  queryInterface.createTable('users', {
+  await queryInterface.createTable('users', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -22,9 +22,18 @@ export const up: Migration = async ({ context: queryInterface }) => {
       type: DataTypes.STRING(64),
       allowNull: false,
     },
+    createdAt: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW,
+      allowNull: false,
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: true,
+    },
   })
 }
 
 export const down: Migration = async ({ context: queryInterface }) => {
-  queryInterface.dropTable('users')
+  await queryInterface.dropTable('users')
 }
