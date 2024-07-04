@@ -14,6 +14,7 @@
     "lint:staged": "lint-staged"
   },
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "pg": "^8.12.0",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.37.3",
@@ -21,6 +22,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.21.1",
+    "@types/bcrypt": "^5.0.2",
     "@types/bun": "^1.1.5",
     "eslint": "^9.5.0",
     "lint-staged": "^15.2.7"
