@@ -14,7 +14,7 @@ export const up: Migration = async ({ context: queryInterface }) => {
       allowNull: false,
     },
     username: {
-      type: DataTypes.STRING(64),
+      type: DataTypes.STRING(24),
       unique: true,
       allowNull: false,
     },
