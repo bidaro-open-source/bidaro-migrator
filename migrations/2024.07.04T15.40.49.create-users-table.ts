@@ -9,7 +9,7 @@ export const up: Migration = async ({ context: queryInterface }) => {
       autoIncrement: true,
     },
     email: {
-      type: DataTypes.STRING(255),
+      type: DataTypes.STRING(254),
       unique: true,
       allowNull: false,
     },
