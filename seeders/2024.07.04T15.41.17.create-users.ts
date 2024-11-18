@@ -1,10 +1,10 @@
-import { hash } from 'bcrypt'
 import type { Seeder } from '../src/seeder'
+import { hashSync } from 'bcrypt'
 
 const now = new Date()
 
 const records = [
-  { email: 'test@test.test', username: 'test', password: await hash('password', 1), createdAt: now, roleId: 1 },
+  { email: 'test@test.test', username: 'test', password: hashSync('password', 1), createdAt: now, roleId: 1 },
 ]
 
 export const up: Seeder = async ({ context: queryInterface }) => {

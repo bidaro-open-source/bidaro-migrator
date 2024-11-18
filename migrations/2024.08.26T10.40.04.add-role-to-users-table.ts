@@ -1,6 +1,6 @@
 import type { QueryInterface } from 'sequelize'
-import { DataTypes } from 'sequelize'
 import type { Migration } from '../src/migrator.js'
+import { DataTypes } from 'sequelize'
 import { roles } from '../src/constants.js'
 
 async function getUserRoleId(queryInterface: QueryInterface) {

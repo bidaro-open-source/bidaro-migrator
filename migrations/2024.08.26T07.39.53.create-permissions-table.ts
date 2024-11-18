@@ -1,5 +1,5 @@
+import type { Migration } from '../src/migrator'
 import { DataTypes } from 'sequelize'
-import type { Migration } from '../src/migrator.js'
 import { permissions, roles } from '../src/constants.js'
 
 export const up: Migration = async ({ context: queryInterface }) => {
