@@ -18,6 +18,14 @@ export const up: Migration = async ({ context: queryInterface }) => {
         unique: true,
         allowNull: false,
       },
+      displayName: {
+        type: DataTypes.STRING(64),
+        allowNull: true,
+      },
+      description: {
+        type: DataTypes.STRING(1024),
+        allowNull: true,
+      },
       createdAt: {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
@@ -40,6 +48,14 @@ export const up: Migration = async ({ context: queryInterface }) => {
         type: DataTypes.STRING(64),
         unique: true,
         allowNull: false,
+      },
+      displayName: {
+        type: DataTypes.STRING(64),
+        allowNull: true,
+      },
+      description: {
+        type: DataTypes.STRING(1024),
+        allowNull: true,
       },
       createdAt: {
         type: DataTypes.DATE,
@@ -82,13 +98,13 @@ export const up: Migration = async ({ context: queryInterface }) => {
     }, { transaction })
 
     const _roles = await queryInterface.bulkInsert('roles', [
-      { name: roles.USER, createdAt: now },
-      { name: roles.SUPERUSER, createdAt: now },
+      { name: roles.USER, displayName: 'Користувач', description: 'Роль за замовчуванням', createdAt: now },
+      { name: roles.SUPERUSER, displayName: 'Супер користувач', createdAt: now },
       // @ts-expect-error options typing is wrong
     ], { returning: true, transaction })
 
     const _permissions = await queryInterface.bulkInsert('permissions', [
-      { name: permissions.VIEW_ALL_ROLES, createdAt: now },
+      { name: permissions.VIEW_ALL_ROLES, displayName: 'Переглядати всі ролі', description: 'Дозволяє переглядати ролі системи', createdAt: now },
       { name: permissions.VIEW_ALL_PERMISSIONS, createdAt: now },
       { name: permissions.VIEW_ALL_SESSIONS, createdAt: now },
       { name: permissions.VIEW_OWN_SESSIONS, createdAt: now },
