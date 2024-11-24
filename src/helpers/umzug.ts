@@ -1,8 +1,8 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import process from 'node:process'
-import { SequelizeStorage, Umzug } from 'umzug'
 import { Sequelize } from 'sequelize'
+import { SequelizeStorage, Umzug } from 'umzug'
 
 interface UmzugOptions {
   directory: string
