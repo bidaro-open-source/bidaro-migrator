@@ -8,6 +8,13 @@ export default antfu({
     quotes: 'single',
   },
   ignores: [
+    '.github/**',
+    '.hooks/**',
+    '.nuxt/**',
+    '.vscode/**',
     'src/templates',
   ],
+  rules: {
+    'antfu/no-top-level-await': 'off',
+  },
 })

@@ -1,5 +1,5 @@
-import { DataTypes } from 'sequelize'
 import type { Migration } from '../src/migrator.js'
+import { DataTypes } from 'sequelize'
 
 export const up: Migration = async ({ context: queryInterface }) => {
   await queryInterface.createTable('users', {
